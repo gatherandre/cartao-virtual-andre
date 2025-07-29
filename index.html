@@ -1,99 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartão André Guimarães</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#aa0000">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
   </script>
-    self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open('card-cache').then((cache) => cache.addAll([
-      './',
-      './index.html',
-      './manifest.json',
-      './icon-192.png',
-      './icon-512.png',
-      './bg.jpg',
-      './andre_guimaraes.vcf'
-    ]))
-  );
-});
 
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((res) => res || fetch(e.request))
-  );
-});
-    self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open('card-cache').then((cache) => cache.addAll([
-      './',
-      './index.html',
-      './manifest.json',
-      './icon-192.png',
-      './icon-512.png',
-      './bg.jpg',
-      './andre_guimaraes.vcf'
-    ]))
-  );
-});
-
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((res) => res || fetch(e.request))
-  );
-});
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>André Guimarães - Cartão de Visita</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body {
-            background-image: url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 40px;
-            text-align: center;
-        }
-        .info {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px 40px;
-            border-radius: 20px;
-        }
-        h1 { font-size: 3em; margin-bottom: 0.2em; }
-        h2 { font-size: 1.8em; margin-bottom: 0.5em; font-weight: normal; }
-        p { font-size: 1.2em; margin: 10px 0; }
-        .btn {
-            background: #aa0000;
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .qr { margin-top: 20px; }
-    </style>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2em;
+      border-radius: 1em;
+      text-align: center;
+      max-width: 90%;
+    }
+    .card h1 {
+      color: #ff0000;
+    }
+    .card a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 0.5em 0;
+    }
+    .qr {
+      margin-top: 1em;
+    }
+  </style>
 </head>
 <body>
-    <div class="info">
-        <h1>André Guimarães</h1>
-        <h2>Gerente Comercial de Esportes Olímpicos</h2>
-        <p>Clube de Regatas do Flamengo</p>
-        <p>📞 +55 21 92011-8501</p>
-        <p>📧 andreguimaraes.tj@gmail.com</p>
-        <p><a href="https://www.flamengo.com.br" class="btn">🌐 Site Oficial</a></p>
-        <a class="btn" href="andre_guimaraes.vcf" download>📇 Salvar Contato</a>
-        <div class="qr">
-            <img src="qr_vcard.png" alt="QR Code do Contato" width="200">
-        </div>
+  <div class="card">
+    <h1>André Guimarães</h1>
+    <p>Gerente Comercial de Esportes Olímpicos</p>
+    <p>Clube de Regatas do Flamengo</p>
+    <a href="tel:+5521920118501">📞 +55 21 92011-8501</a>
+    <a href="mailto:andreguimaraes.tj@gmail.com">📧 andreguimaraes.tj@gmail.com</a>
+    <a href="https://www.flamengo.com.br" target="_blank">🌐 www.flamengo.com.br</a>
+    <div class="qr">
+      <img src="qr_vcard.png" alt="QR Code VCard" width="160">
     </div>
+  </div>
 </body>
 </html>

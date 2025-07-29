@@ -1,3 +1,4 @@
+
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('card-cache').then((cache) => cache.addAll([
@@ -7,6 +8,7 @@ self.addEventListener('install', (e) => {
       './icon-192.png',
       './icon-512.png',
       './bg.jpg',
+      './qr_vcard.png',
       './andre_guimaraes.vcf'
     ]))
   );
@@ -14,6 +16,6 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
-    caches.match(e.request).then((res) => res || fetch(e.request))
+    caches.match(e.request).then((response) => response || fetch(e.request))
   );
 });
