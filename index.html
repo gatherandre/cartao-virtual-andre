@@ -12,6 +12,25 @@
       });
     }
   </script>
+    self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open('card-cache').then((cache) => cache.addAll([
+      './',
+      './index.html',
+      './manifest.json',
+      './icon-192.png',
+      './icon-512.png',
+      './bg.jpg',
+      './andre_guimaraes.vcf'
+    ]))
+  );
+});
+
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((res) => res || fetch(e.request))
+  );
+});
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>André Guimarães - Cartão de Visita</title>
