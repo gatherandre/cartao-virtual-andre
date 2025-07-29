@@ -5,7 +5,7 @@ const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png',
+  './screenshot1.png',
   './bg.jpg',
   './qr_vcard.png',
   './andre_guimaraes.vcf'
