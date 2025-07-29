@@ -1,27 +1,15 @@
 {
   "name": "Cartão André Guimarães",
-  "short_name": "Cartão André",
-  "description": "Cartão de visita virtual interativo de André Guimarães – Gerente Comercial de Esportes Olímpicos no Flamengo.",
-  "id": "com.andreguimaraes.card",
+  "short_name": "André Guimarães",
   "start_url": "./index.html",
-  "scope": "./",
   "display": "standalone",
-  "orientation": "landscape",
   "background_color": "#000000",
   "theme_color": "#aa0000",
+  "description": "Cartão NFC virtual de André Guimarães - Gerente Comercial do Flamengo.",
   "lang": "pt-BR",
+  "orientation": "portrait",
   "dir": "ltr",
-  "categories": ["business", "productivity"],
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  },
-  "screenshots": [
-    {
-      "src": "screenshot1.png",
-      "type": "image/png",
-      "sizes": "1080x720"
-    }
-  ],
+  "id": "com.flamengo.andrecard",
   "icons": [
     {
       "src": "icon-192.png",
@@ -36,10 +24,18 @@
       "purpose": "any"
     }
   ],
-  "scope_extensions": [
+  "screenshots": [
     {
-      "origin": "./"
+      "src": "screenshot.png",
+      "sizes": "540x960",
+      "type": "image/png",
+      "label": "Visual do cartão"
     }
   ],
-  "prefer_related_applications": false
+  "categories": [
+    "business",
+    "productivity",
+    "contacts"
+  ],
+  "scope": "./"
 }
