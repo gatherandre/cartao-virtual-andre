@@ -1,84 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cartão André Guimarães</title>
-
-  <!-- PWA Essentials -->
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#aa0000" />
-  <link rel="icon" href="screenshot1.png" type="image/png" />
-
-  <!-- Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker
-          .register('service-worker.js')
-          .then(() => console.log('Service Worker registrado com sucesso'))
-          .catch((err) => console.error('Erro ao registrar Service Worker:', err));
-      });
-    }
-  </script>
-
-  <!-- Estilos básicos -->
+  <title>Cartão Flamengo</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      text-align: center;
+      padding: 2em;
     }
     .card {
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 2rem;
-      border-radius: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      border-radius: 1em;
       max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+      margin: auto;
     }
-    .card h1 {
-      margin: 0 0 0.5rem;
-      color: #ff0000;
+    input {
+      width: 100%;
+      padding: 0.5em;
+      margin: 0.5em 0;
+      border-radius: 0.5em;
+      border: none;
     }
-    .card p {
-      margin: 0.3rem 0;
-    }
-    .card a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0.3rem 0;
-      display: block;
-    }
-    .qr {
-      margin-top: 1rem;
-    }
-    .qr img {
-      border-radius: 8px;
+    button {
+      padding: 0.5em 1em;
+      border-radius: 0.5em;
+      border: none;
+      background: #d80000;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>André Guimarães</h1>
-    <p>Gerente Comercial de Esportes Olímpicos</p>
-    <p>Clube de Regatas do Flamengo</p>
-    <a href="tel:+5521920118501">📞 +55 21 92011-8501</a>
-    <a href="mailto:andreguimaraes.tj@gmail.com">📧 andreguimaraes.tj@gmail.com</a>
-    <a href="https://www.flamengo.com.br" target="_blank">🌐 www.flamengo.com.br</a>
-    <div class="qr">
-      <img src="qr_vcard.png" alt="QR Code para VCard" width="150" height="150" />
-    </div>
+    <img src="icon-192.png" width="96" />
+    <h1>Cartão Rubro-Negro</h1>
+    <input type="text" id="nome" placeholder="Nome completo" />
+    <input type="text" id="cargo" placeholder="Cargo" />
+    <input type="email" id="email" placeholder="E-mail" />
+    <input type="tel" id="telefone" placeholder="Telefone" />
+    <button onclick="salvar()">Salvar</button>
+    <p id="output"></p>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
